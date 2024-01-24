@@ -1,0 +1,265 @@
+:root {
+  --background-color: rgb(0, 192, 83);
+  --bg-modal:rgba(163, 163, 163, 0.7);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+#header {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header > h1 {
+  font-size: 60px;
+  font-weight: 900;
+  padding: 50px 0;
+}
+.content {
+  padding: 30px 0;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+.newTask {
+  background-color: var(--background-color);
+  padding: 10px 20px;
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 0px black;
+  transition: 1s;
+}
+.newTask:active {
+  box-shadow: -1px -1px 3px 0px black;
+}
+.newTask:hover
+{transition: 1s;
+  animation: sizer 1.5s linear infinite;
+}
+@keyframes sizer {
+  0%{transform: scale(1);
+    transition: 1s;
+    box-shadow: 1px 1px 3px 0px black;}
+  50%{transform: scale(1.1);
+    transition: 1s;
+    box-shadow: 1px 1px 5px 1px black;}
+  100%{transform: scale(1);
+    transition: 1s;
+    box-shadow: 1px 1px 3px 0px black;}
+}
+.table {
+  width: 100%;
+  /* border: 1px solid black; */
+  margin: 30px auto;
+}
+th,
+td {
+  position: relative;
+  width: 33%;
+  padding: 15px 20px 15px 35px;
+  text-align: center;
+  border: 1px solid var(--background-color);
+}
+th {
+  font-size: 30px;
+}
+td {
+  font-size: 20px;
+  /* position: relative; */
+  max-width: 100px;
+  word-wrap:break-word;
+}
+tr
+{
+  width: 100%;
+}
+.check {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.oval {
+  background-color: rgb(222, 222, 222);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  pointer-events: none;
+  
+}
+.oval1 {
+  background-color: var(--background-color);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: none;
+
+}
+.sort
+{
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+  border: none;
+  background-color: none ;
+  background: none;
+  padding-bottom: 5px;
+  position: relative;
+}
+.sort::before
+{
+  content: '';
+  position: absolute;
+  width: 0;
+  background-color: var(--background-color);
+  height: 2px;
+  left:50%;
+  transform: translate(0,-50%);
+  bottom: 0;
+  transition: 0.3s;
+}
+.sort:hover::before
+{
+  
+ width: 100%;
+ left: 0;
+} *
+.settings
+{
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background-color: none ;
+  background: none;
+  cursor: pointer;
+}
+.modal
+{
+    position: fixed;
+    background-color: var(--bg-modal);
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    /* transform: translate(-50%,-50%); */
+    z-index: 99;
+}
+.modal-window
+{
+  background-color: var(--background-color);
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-radius: 20px;
+  gap:15px;
+  max-width: 400px;
+  min-width: 300px;
+}
+#task, #comment
+{
+  width:100%;
+  height: 100px;
+  overflow: auto;
+}
+.label
+{
+  font-size: 16px;
+  font-weight: 600;
+}
+.modal-title
+{
+  text-align: center;
+}
+.newTask-modal{
+
+  width: 100px;
+  align-self: center;
+  padding: 10px 20px;
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 0px black;
+}
+.newTask-modal:active {
+  box-shadow: -1px -1px 3px 0px black;
+}
+.close-window
+{
+  font-size: 16px;
+  font-weight: 900;
+  position: absolute;
+  top:15px;
+  right: 15px;
+  border-radius: 10px;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-window:hover
+{
+  border: 1px solid var(--background-color);
+  color: var(--background-color);
+  background-color: white;
+}
+.tableBody
+{
+  max-width: 100%;
+}
+.img
+{
+  width: 40px;
+  height: 40px;
+}
+.blockedText
+{
+  margin-left:75px;
+  margin-top: 10px;
+}
+.blockedText >p
+{
+  font-size: 24px;
+  font-weight: 900;
+}
